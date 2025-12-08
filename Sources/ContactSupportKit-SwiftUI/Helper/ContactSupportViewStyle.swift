@@ -14,7 +14,7 @@ public enum ContactSupportViewStyle {
     case style3
     case style4
     
-    public static func make(viewModel: ContactSupportViewModel,
+    static func make(viewModel: ContactSupportViewModel,
                             config: ContactSupportViewConfig,
                             environment: ContactSupportViewEnvironment) -> AnyView {
         switch config.style {
@@ -33,7 +33,7 @@ public enum ContactSupportViewStyle {
         }
     }
     
-    public static func getViewConfigWithStyle(style: ContactSupportViewStyle) -> ContactSupportViewConfig {
+    static func getViewConfigWithStyle(style: ContactSupportViewStyle) -> ContactSupportViewConfig {
         switch style {
         case .style1:
             return ContactSupportViewConfig_Style1()
