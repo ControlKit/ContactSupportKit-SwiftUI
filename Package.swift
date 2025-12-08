@@ -4,14 +4,14 @@
 import PackageDescription
 
 let package = Package(
-    name: "ContactSupportKit",
+    name: "ContactSupportKit-SwiftUI",
     platforms: [
          .iOS(.v15)
     ],
     products: [
         .library(
-            name: "ContactSupportKit",
-            targets: ["ContactSupportKit"]
+            name: "ContactSupportKit-SwiftUI",
+            targets: ["ContactSupportKit-SwiftUI"]
         ),
     ],
     dependencies: [
@@ -27,8 +27,8 @@ let package = Package(
             resources: [.process("Resources")]
         ),
         .testTarget(
-            name: "ContactSupportKitTests",
-            dependencies: ["ContactSupportKit"]
+            name: "ContactSupportKit-SwiftUITests",
+            dependencies: ["ContactSupportKit-SwiftUI"]
         ),
     ]
 )
