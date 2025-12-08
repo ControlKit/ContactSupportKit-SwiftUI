@@ -22,7 +22,7 @@ let package = Package(
     ],
     targets: [
         .target(
-            name: "ContactSupportKit",
+            name: "ContactSupportKit-SwiftUI",
             dependencies: ["ControlKitBase"],
             resources: [.process("Resources")]
         ),
