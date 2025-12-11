@@ -164,6 +164,7 @@ public struct ContactSupportView_Style4: View, ContactSupportViewProtocol {
                 .frame(height: 667)
                 .background(config.containerViewBackColor)
                 .cornerRadius(20)
+                .ignoresSafeArea()
             }
         }
     }
