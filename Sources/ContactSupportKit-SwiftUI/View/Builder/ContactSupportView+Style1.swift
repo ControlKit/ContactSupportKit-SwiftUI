@@ -140,7 +140,10 @@ public struct ContactSupportView_Style1: View, ContactSupportViewProtocol {
                             }
                             .padding(.top, 50)
                             .padding(.horizontal, 16)
-                            
+                            Spacer()
+                        }
+                        HStack {
+                            Spacer()
                             // Cancel Button
                             Button(action: {
                                 environment.onCancel()
