@@ -118,43 +118,46 @@ public struct ContactSupportView_Style2: View, ContactSupportViewProtocol {
                         }
                     }
                     .focused($focusedField, equals: .message)
-                    
-                    // Send Button
-                    Button(action: {
-                        sendRequest()
-                    }) {
-                        Text(config.sendButtonTitle)
-                            .font(config.sendButtonFont)
-                            .foregroundColor(config.sendButtonTitleColor)
-                            .frame(width: 224, height: 52)
-                            .background(config.sendButtonBackColor)
-                            .overlay(
-                                RoundedRectangle(cornerRadius: config.sendButtonRadius)
-                                    .stroke(config.sendButtonBorderColor, lineWidth: config.sendButtonBorderWidth)
-                            )
-                            .cornerRadius(config.sendButtonRadius)
+                    HStack {
+                        Spacer()
+                        // Send Button
+                        Button(action: {
+                            sendRequest()
+                        }) {
+                            Text(config.sendButtonTitle)
+                                .font(config.sendButtonFont)
+                                .foregroundColor(config.sendButtonTitleColor)
+                                .frame(width: 224, height: 52)
+                                .background(config.sendButtonBackColor)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: config.sendButtonRadius)
+                                        .stroke(config.sendButtonBorderColor, lineWidth: config.sendButtonBorderWidth)
+                                )
+                                .cornerRadius(config.sendButtonRadius)
+                        }
+                        .padding(.top, 50)
+                        .padding(.horizontal, 24)
+                        
+                        // Cancel Button
+                        Button(action: {
+                            environment.onCancel()
+                        }) {
+                            Text(config.cancelButtonTitle)
+                                .font(config.cancelButtonFont)
+                                .foregroundColor(config.cancelButtonTitleColor)
+                                .frame(width: 224, height: 52)
+                                .background(config.cancelButtonBackColor)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: config.cancelButtonRadius)
+                                        .stroke(config.cancelButtonBorderColor, lineWidth: config.cancelButtonBorderWidth)
+                                )
+                                .cornerRadius(config.cancelButtonRadius)
+                        }
+                        .padding(.top, 14)
+                        .padding(.horizontal, 24)
+                        .padding(.bottom, 50)
+                        Spacer()
                     }
-                    .padding(.top, 50)
-                    .padding(.horizontal, 24)
-                    
-                    // Cancel Button
-                    Button(action: {
-                        environment.onCancel()
-                    }) {
-                        Text(config.cancelButtonTitle)
-                            .font(config.cancelButtonFont)
-                            .foregroundColor(config.cancelButtonTitleColor)
-                            .frame(width: 224, height: 52)
-                            .background(config.cancelButtonBackColor)
-                            .overlay(
-                                RoundedRectangle(cornerRadius: config.cancelButtonRadius)
-                                    .stroke(config.cancelButtonBorderColor, lineWidth: config.cancelButtonBorderWidth)
-                            )
-                            .cornerRadius(config.cancelButtonRadius)
-                    }
-                    .padding(.top, 14)
-                    .padding(.horizontal, 24)
-                    .padding(.bottom, 50)
                 }
             }
         }
