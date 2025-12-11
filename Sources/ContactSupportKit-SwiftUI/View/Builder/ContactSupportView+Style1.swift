@@ -101,14 +101,6 @@ public struct ContactSupportView_Style1: View, ContactSupportViewProtocol {
                         
                         // Message TextEditor
                         ZStack(alignment: .topLeading) {
-                            if messageText.isEmpty {
-                                Text(config.messagePlaceHolder)
-                                    .font(config.messagePlaceHolderFont)
-                                    .foregroundColor(config.messagePlaceHolderColor)
-                                    .padding(.top, 16)
-                                    .padding(.leading, 16)
-                            }
-                            
                             TextEditor(text: $messageText)
                                 .font(config.messageTextFiledFont)
                                 .foregroundColor(config.messageTextFieldTextColor)
@@ -118,6 +110,13 @@ public struct ContactSupportView_Style1: View, ContactSupportViewProtocol {
                                         .stroke(config.messageTextFieldBorderColor, lineWidth: config.messageTextFieldBorderWidth)
                                 )
                                 .cornerRadius(config.messageTextFieldRadius)
+                            if messageText.isEmpty {
+                                Text(config.messagePlaceHolder)
+                                    .font(config.messagePlaceHolderFont)
+                                    .foregroundColor(config.messagePlaceHolderColor)
+                                    .padding(.top, 24)
+                                    .padding(.leading, 32)
+                            }
                         }
                         .padding(.top, 14)
                         .padding(.horizontal, 16)

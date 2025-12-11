@@ -100,14 +100,6 @@ public struct ContactSupportView_Style4: View, ContactSupportViewProtocol {
                     
                     // Message TextEditor
                     ZStack(alignment: .topLeading) {
-                        if messageText.isEmpty {
-                            Text(config.messagePlaceHolder)
-                                .font(config.messagePlaceHolderFont)
-                                .foregroundColor(config.messagePlaceHolderColor)
-                                .padding(.top, 16)
-                                .padding(.leading, 16)
-                        }
-                        
                         TextEditor(text: $messageText)
                             .font(config.messageTextFiledFont)
                             .foregroundColor(config.messageTextFieldTextColor)
@@ -119,25 +111,34 @@ public struct ContactSupportView_Style4: View, ContactSupportViewProtocol {
                             .cornerRadius(config.messageTextFieldRadius)
                             .padding(.top, 14)
                             .padding(.horizontal, 16)
+                        if messageText.isEmpty {
+                            Text(config.messagePlaceHolder)
+                                .font(config.messagePlaceHolderFont)
+                                .foregroundColor(config.messagePlaceHolderColor)
+                                .padding(.top, 24)
+                                .padding(.leading, 32)
+                        }
                     }
                     .focused($focusedField, equals: .message)
                     
                     // Buttons View
                     HStack(spacing: 6) {
                         // Cancel Button
+                        Spacer()
                         Button(action: {
                             environment.onCancel()
                         }) {
                             Text(config.cancelButtonTitle)
                                 .font(config.cancelButtonFont)
                                 .foregroundColor(config.cancelButtonTitleColor)
-                                .frame(width: 188, height: 52)
                                 .background(config.cancelButtonBackColor)
                                 .overlay(
                                     RoundedRectangle(cornerRadius: config.cancelButtonRadius)
                                         .stroke(config.cancelButtonBorderColor, lineWidth: config.cancelButtonBorderWidth)
                                 )
                                 .cornerRadius(config.cancelButtonRadius)
+                                .padding(.vertical, 16)
+                                .padding(.horizontal, 30)
                         }
                         
                         // Send Button
@@ -147,22 +148,24 @@ public struct ContactSupportView_Style4: View, ContactSupportViewProtocol {
                             Text(config.sendButtonTitle)
                                 .font(config.sendButtonFont)
                                 .foregroundColor(config.sendButtonTitleColor)
-                                .frame(width: 188, height: 52)
                                 .background(config.sendButtonBackColor)
                                 .overlay(
                                     RoundedRectangle(cornerRadius: config.sendButtonRadius)
                                         .stroke(config.sendButtonBorderColor, lineWidth: config.sendButtonBorderWidth)
                                 )
                                 .cornerRadius(config.sendButtonRadius)
+                                .padding(.vertical, 16)
+                                .padding(.horizontal, 30)
                         }
+                        Spacer()
                     }
                     .padding(.top, 32)
                     .padding(.horizontal, 24)
                     .padding(.bottom, 40)
+                    
                 }
                 .frame(maxWidth: .infinity)
                 .frame(height: 667)
-                .padding(.horizontal, 16)
                 .background(config.containerViewBackColor)
                 .cornerRadius(20)
             }
