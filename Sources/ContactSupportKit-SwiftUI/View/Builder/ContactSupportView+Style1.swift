@@ -43,7 +43,6 @@ public struct ContactSupportView_Style1: View, ContactSupportViewProtocol {
                             .foregroundColor(config.titleColor)
                             .padding(.top, 44)
                             .padding(.horizontal, 16)
-                            .frame(height: 25)
                         
                         // Subject Label
                         Text(config.subjectText)
@@ -51,7 +50,6 @@ public struct ContactSupportView_Style1: View, ContactSupportViewProtocol {
                             .foregroundColor(config.subjectTextColor)
                             .padding(.top, 24)
                             .padding(.horizontal, 16)
-                            .frame(height: 17)
                         
                         // Subject TextField
                         TextField(config.subjectTextFieldPlaceHolder, text: $subjectText)
@@ -75,7 +73,6 @@ public struct ContactSupportView_Style1: View, ContactSupportViewProtocol {
                             .foregroundColor(config.emailTextColor)
                             .padding(.top, 32)
                             .padding(.horizontal, 16)
-                            .frame(height: 17)
                         
                         // Email TextField
                         TextField(config.emailTextFieldPlaceHolder, text: $emailText)
@@ -101,7 +98,6 @@ public struct ContactSupportView_Style1: View, ContactSupportViewProtocol {
                             .foregroundColor(config.messageTextColor)
                             .padding(.top, 32)
                             .padding(.horizontal, 16)
-                            .frame(height: 17)
                         
                         // Message TextEditor
                         ZStack(alignment: .topLeading) {
@@ -122,9 +118,9 @@ public struct ContactSupportView_Style1: View, ContactSupportViewProtocol {
                                         .stroke(config.messageTextFieldBorderColor, lineWidth: config.messageTextFieldBorderWidth)
                                 )
                                 .cornerRadius(config.messageTextFieldRadius)
-                                .padding(.top, 14)
-                                .padding(.horizontal, 16)
                         }
+                        .padding(.top, 14)
+                        .padding(.horizontal, 16)
                         .focused($focusedField, equals: .message)
                         
                         // Send Button

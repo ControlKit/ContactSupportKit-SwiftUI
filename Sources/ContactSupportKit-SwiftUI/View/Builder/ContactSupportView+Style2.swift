@@ -40,7 +40,6 @@ public struct ContactSupportView_Style2: View, ContactSupportViewProtocol {
                         .foregroundColor(config.titleColor)
                         .padding(.top, 55)
                         .padding(.horizontal, 24)
-                        .frame(height: 36)
                     
                     // Subject Label
                     Text(config.subjectText)
@@ -48,7 +47,6 @@ public struct ContactSupportView_Style2: View, ContactSupportViewProtocol {
                         .foregroundColor(config.subjectTextColor)
                         .padding(.top, 46)
                         .padding(.horizontal, 24)
-                        .frame(height: 17)
                     
                     // Subject TextField
                     TextField(config.subjectTextFieldPlaceHolder, text: $subjectText)
@@ -72,7 +70,6 @@ public struct ContactSupportView_Style2: View, ContactSupportViewProtocol {
                         .foregroundColor(config.emailTextColor)
                         .padding(.top, 33)
                         .padding(.horizontal, 24)
-                        .frame(height: 17)
                     
                     // Email TextField
                     TextField(config.emailTextFieldPlaceHolder, text: $emailText)
@@ -98,7 +95,6 @@ public struct ContactSupportView_Style2: View, ContactSupportViewProtocol {
                         .foregroundColor(config.messageTextColor)
                         .padding(.top, 33)
                         .padding(.horizontal, 24)
-                        .frame(height: 17)
                     
                     // Message TextEditor
                     ZStack(alignment: .topLeading) {
