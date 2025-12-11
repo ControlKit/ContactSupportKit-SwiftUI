@@ -137,8 +137,7 @@ public struct ContactSupportView_Style4: View, ContactSupportViewProtocol {
                                         .stroke(config.cancelButtonBorderColor, lineWidth: config.cancelButtonBorderWidth)
                                 )
                                 .cornerRadius(config.cancelButtonRadius)
-                                .padding(.vertical, 16)
-                                .padding(.horizontal, 30)
+                                .frame(width: 120, height: 52)
                         }
                         
                         // Send Button
@@ -154,8 +153,7 @@ public struct ContactSupportView_Style4: View, ContactSupportViewProtocol {
                                         .stroke(config.sendButtonBorderColor, lineWidth: config.sendButtonBorderWidth)
                                 )
                                 .cornerRadius(config.sendButtonRadius)
-                                .padding(.vertical, 16)
-                                .padding(.horizontal, 30)
+                                .frame(width: 120, height: 52)
                         }
                         Spacer()
                     }
@@ -170,6 +168,7 @@ public struct ContactSupportView_Style4: View, ContactSupportViewProtocol {
                 .cornerRadius(20)
             }
         }
+        .ignoresSafeArea()
     }
     
     private func sendRequest() {

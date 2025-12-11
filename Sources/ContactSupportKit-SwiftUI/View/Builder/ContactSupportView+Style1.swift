@@ -36,6 +36,7 @@ public struct ContactSupportView_Style1: View, ContactSupportViewProtocol {
             ScrollView {
                 VStack(spacing: 0) {
                     // Container View
+                    Spacer()
                     VStack(alignment: .leading, spacing: 0) {
                         // Title
                         Text(config.titleText)
@@ -170,8 +171,10 @@ public struct ContactSupportView_Style1: View, ContactSupportViewProtocol {
                     .cornerRadius(25)
                     .padding(.horizontal, 24)
                     .padding(.vertical, 24)
+                    Spacer()
                 }
             }
+            .ignoresSafeArea()
         }
     }
     
