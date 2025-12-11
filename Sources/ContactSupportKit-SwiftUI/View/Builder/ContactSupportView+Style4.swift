@@ -162,9 +162,9 @@ public struct ContactSupportView_Style4: View, ContactSupportViewProtocol {
                 }
                 .frame(maxWidth: .infinity)
                 .frame(height: 667)
+                .padding(.horizontal, 16)
                 .background(config.containerViewBackColor)
                 .cornerRadius(20)
-                .ignoresSafeArea()
             }
         }
     }
