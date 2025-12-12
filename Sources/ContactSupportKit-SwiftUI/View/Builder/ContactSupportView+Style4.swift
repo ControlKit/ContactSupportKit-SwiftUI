@@ -51,8 +51,12 @@ public struct ContactSupportView_Style4: View, ContactSupportViewProtocol {
                         .padding(.horizontal, 24)
                     
                     // Subject TextField
-                    TextField(config.subjectTextFieldPlaceHolder, text: $subjectText)
-                        .font(config.subjectTextFieldFont)
+                    TextField(
+                        "maziar",
+                        text: $subjectText,
+                        prompt: Text(config.subjectTextFieldPlaceHolder)
+                            .foregroundColor(config.subjectTextFieldPlaceHolderColor)
+                    ).font(config.subjectTextFieldFont)
                         .foregroundColor(config.subjectTextFieldTextColor)
                         .padding(.horizontal, 16)
                         .frame(height: 42)
