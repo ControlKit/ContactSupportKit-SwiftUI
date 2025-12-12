@@ -131,13 +131,13 @@ public struct ContactSupportView_Style4: View, ContactSupportViewProtocol {
                             Text(config.cancelButtonTitle)
                                 .font(config.cancelButtonFont)
                                 .foregroundColor(config.cancelButtonTitleColor)
+                                .frame(width: 120, height: 52)
                                 .background(config.cancelButtonBackColor)
                                 .overlay(
                                     RoundedRectangle(cornerRadius: config.cancelButtonRadius)
                                         .stroke(config.cancelButtonBorderColor, lineWidth: config.cancelButtonBorderWidth)
                                 )
                                 .cornerRadius(config.cancelButtonRadius)
-                                .frame(width: 120, height: 52)
                         }
                         
                         // Send Button
@@ -147,13 +147,13 @@ public struct ContactSupportView_Style4: View, ContactSupportViewProtocol {
                             Text(config.sendButtonTitle)
                                 .font(config.sendButtonFont)
                                 .foregroundColor(config.sendButtonTitleColor)
+                                .frame(width: 120, height: 52)
                                 .background(config.sendButtonBackColor)
                                 .overlay(
                                     RoundedRectangle(cornerRadius: config.sendButtonRadius)
                                         .stroke(config.sendButtonBorderColor, lineWidth: config.sendButtonBorderWidth)
                                 )
                                 .cornerRadius(config.sendButtonRadius)
-                                .frame(width: 120, height: 52)
                         }
                         Spacer()
                     }
