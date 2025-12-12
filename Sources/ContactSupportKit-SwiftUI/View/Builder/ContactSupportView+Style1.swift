@@ -53,7 +53,12 @@ public struct ContactSupportView_Style1: View, ContactSupportViewProtocol {
                             .padding(.horizontal, 16)
                         
                         // Subject TextField
-                        TextField(config.subjectTextFieldPlaceHolder, text: $subjectText)
+                        TextField(
+                            "",
+                            text: $subjectText,
+                            prompt: Text(config.subjectTextFieldPlaceHolder)
+                                .foregroundColor(config.subjectTextFieldPlaceHolderColor)
+                                .font(config.subjectTextFieldPlaceHolderFont))
                             .font(config.subjectTextFieldFont)
                             .foregroundColor(config.subjectTextFieldTextColor)
                             .padding(.horizontal, 16)
@@ -76,7 +81,12 @@ public struct ContactSupportView_Style1: View, ContactSupportViewProtocol {
                             .padding(.horizontal, 16)
                         
                         // Email TextField
-                        TextField(config.emailTextFieldPlaceHolder, text: $emailText)
+                        TextField(
+                            "",
+                            text: $emailText,
+                            prompt: Text(config.emailTextFieldPlaceHolder)
+                                .foregroundColor(config.emailTextFieldPlaceHolderColor)
+                                .font(config.emailTextFieldPlaceHolderFont))
                             .font(config.emailTextFieldFont)
                             .foregroundColor(config.emailTextFieldTextColor)
                             .keyboardType(.emailAddress)
@@ -102,9 +112,11 @@ public struct ContactSupportView_Style1: View, ContactSupportViewProtocol {
                         
                         // Message TextEditor
                         ZStack(alignment: .topLeading) {
+                            
                             TextEditor(text: $messageText)
                                 .font(config.messageTextFiledFont)
                                 .foregroundColor(config.messageTextFieldTextColor)
+                                .background(config.messageTextFieldBackColor)
                                 .frame(height: 146)
                                 .overlay(
                                     RoundedRectangle(cornerRadius: config.messageTextFieldRadius)
