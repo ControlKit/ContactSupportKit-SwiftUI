@@ -158,6 +158,7 @@ public struct ContactSupportView_Style3: View, ContactSupportViewProtocol {
                             environment.onCancel()
                         }) {
                             Text(config.cancelButtonTitle)
+                                .transparentScrolling()
                                 .font(config.cancelButtonFont)
                                 .foregroundColor(config.cancelButtonTitleColor)
                                 .frame(width: 224, height: 52)

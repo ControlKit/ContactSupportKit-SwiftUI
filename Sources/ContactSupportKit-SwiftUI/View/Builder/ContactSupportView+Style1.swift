@@ -114,6 +114,7 @@ public struct ContactSupportView_Style1: View, ContactSupportViewProtocol {
                         ZStack(alignment: .topLeading) {
                             
                             TextEditor(text: $messageText)
+                                .transparentScrolling()
                                 .font(config.messageTextFiledFont)
                                 .foregroundColor(config.messageTextFieldTextColor)
                                 .background(config.messageTextFieldBackColor)
@@ -182,7 +183,6 @@ public struct ContactSupportView_Style1: View, ContactSupportViewProtocol {
                     .background(config.containerViewBackColor)
                     .cornerRadius(25)
                     .padding(.horizontal, 24)
-                    .padding(.vertical, 24)
                     Spacer()
                 }
             }
