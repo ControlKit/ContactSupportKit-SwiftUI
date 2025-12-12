@@ -29,36 +29,36 @@ public struct ContactSupportView_Style1: View, ContactSupportViewProtocol {
     }
     
     public var body: some View {
-        ZStack {
-            config.contentViewBackColor
-                .ignoresSafeArea()
-            
-            ScrollView {
-                VStack(spacing: 0) {
-                    // Container View
-                    Spacer()
-                    VStack(alignment: .leading, spacing: 0) {
-                        // Title
-                        Text(config.titleText)
-                            .font(config.titleFont)
-                            .foregroundColor(config.titleColor)
-                            .padding(.top, 44)
-                            .padding(.horizontal, 16)
-                        
-                        // Subject Label
-                        Text(config.subjectText)
-                            .font(config.subjectLabelFont)
-                            .foregroundColor(config.subjectTextColor)
-                            .padding(.top, 24)
-                            .padding(.horizontal, 16)
-                        
-                        // Subject TextField
-                        TextField(
-                            "",
-                            text: $subjectText,
-                            prompt: Text(config.subjectTextFieldPlaceHolder)
-                                .foregroundColor(config.subjectTextFieldPlaceHolderColor)
-                                .font(config.subjectTextFieldPlaceHolderFont))
+        GeometryReader { geometry in
+            ZStack {
+                config.contentViewBackColor
+                    .ignoresSafeArea()
+                
+                ScrollView(.vertical) {
+                    VStack(spacing: 0) {
+                        // Container View
+                        VStack(alignment: .leading, spacing: 0) {
+                            // Title
+                            Text(config.titleText)
+                                .font(config.titleFont)
+                                .foregroundColor(config.titleColor)
+                                .padding(.top, 44)
+                                .padding(.horizontal, 16)
+                            
+                            // Subject Label
+                            Text(config.subjectText)
+                                .font(config.subjectLabelFont)
+                                .foregroundColor(config.subjectTextColor)
+                                .padding(.top, 24)
+                                .padding(.horizontal, 16)
+                            
+                            // Subject TextField
+                            TextField(
+                                "",
+                                text: $subjectText,
+                                prompt: Text(config.subjectTextFieldPlaceHolder)
+                                    .foregroundColor(config.subjectTextFieldPlaceHolderColor)
+                                    .font(config.subjectTextFieldPlaceHolderFont))
                             .font(config.subjectTextFieldFont)
                             .foregroundColor(config.subjectTextFieldTextColor)
                             .padding(.horizontal, 16)
@@ -72,21 +72,21 @@ public struct ContactSupportView_Style1: View, ContactSupportViewProtocol {
                             .padding(.top, 14)
                             .padding(.horizontal, 16)
                             .focused($focusedField, equals: .subject)
-                        
-                        // Email Label
-                        Text(config.emailText)
-                            .font(config.emailLabelFont)
-                            .foregroundColor(config.emailTextColor)
-                            .padding(.top, 32)
-                            .padding(.horizontal, 16)
-                        
-                        // Email TextField
-                        TextField(
-                            "",
-                            text: $emailText,
-                            prompt: Text(config.emailTextFieldPlaceHolder)
-                                .foregroundColor(config.emailTextFieldPlaceHolderColor)
-                                .font(config.emailTextFieldPlaceHolderFont))
+                            
+                            // Email Label
+                            Text(config.emailText)
+                                .font(config.emailLabelFont)
+                                .foregroundColor(config.emailTextColor)
+                                .padding(.top, 32)
+                                .padding(.horizontal, 16)
+                            
+                            // Email TextField
+                            TextField(
+                                "",
+                                text: $emailText,
+                                prompt: Text(config.emailTextFieldPlaceHolder)
+                                    .foregroundColor(config.emailTextFieldPlaceHolderColor)
+                                    .font(config.emailTextFieldPlaceHolderFont))
                             .font(config.emailTextFieldFont)
                             .foregroundColor(config.emailTextFieldTextColor)
                             .keyboardType(.emailAddress)
@@ -102,92 +102,95 @@ public struct ContactSupportView_Style1: View, ContactSupportViewProtocol {
                             .padding(.top, 14)
                             .padding(.horizontal, 16)
                             .focused($focusedField, equals: .email)
-                        
-                        // Message Label
-                        Text(config.messageText)
-                            .font(config.messageLabelFont)
-                            .foregroundColor(config.messageTextColor)
-                            .padding(.top, 32)
-                            .padding(.horizontal, 16)
-                        
-                        // Message TextEditor
-                        ZStack(alignment: .topLeading) {
                             
-                            TextEditor(text: $messageText)
-                                .transparentScrolling()
-                                .font(config.messageTextFiledFont)
-                                .foregroundColor(config.messageTextFieldTextColor)
-                                .background(config.messageTextFieldBackColor)
-                                .frame(height: 146)
-                                .overlay(
-                                    RoundedRectangle(cornerRadius: config.messageTextFieldRadius)
-                                        .stroke(config.messageTextFieldBorderColor, lineWidth: config.messageTextFieldBorderWidth)
-                                )
-                                .cornerRadius(config.messageTextFieldRadius)
-                            if messageText.isEmpty {
-                                Text(config.messagePlaceHolder)
-                                    .font(config.messagePlaceHolderFont)
-                                    .foregroundColor(config.messagePlaceHolderColor)
-                                    .padding(.top, 24)
-                                    .padding(.leading, 32)
-                            }
-                        }
-                        .padding(.top, 14)
-                        .padding(.horizontal, 16)
-                        .focused($focusedField, equals: .message)
-                        HStack {
-                            Spacer()
-                            // Send Button
-                            Button(action: {
-                                sendRequest()
-                            }) {
-                                Text(config.sendButtonTitle)
-                                    .font(config.sendButtonFont)
-                                    .foregroundColor(config.sendButtonTitleColor)
-                                    .frame(width: 224, height: 37)
-                                    .background(config.sendButtonBackColor)
+                            // Message Label
+                            Text(config.messageText)
+                                .font(config.messageLabelFont)
+                                .foregroundColor(config.messageTextColor)
+                                .padding(.top, 32)
+                                .padding(.horizontal, 16)
+                            
+                            // Message TextEditor
+                            ZStack(alignment: .topLeading) {
+                                
+                                TextEditor(text: $messageText)
+                                    .transparentScrolling()
+                                    .font(config.messageTextFiledFont)
+                                    .foregroundColor(config.messageTextFieldTextColor)
+                                    .background(config.messageTextFieldBackColor)
+                                    .frame(height: 146)
                                     .overlay(
-                                        RoundedRectangle(cornerRadius: config.sendButtonRadius)
-                                            .stroke(config.sendButtonBorderColor, lineWidth: config.sendButtonBorderWidth)
+                                        RoundedRectangle(cornerRadius: config.messageTextFieldRadius)
+                                            .stroke(config.messageTextFieldBorderColor, lineWidth: config.messageTextFieldBorderWidth)
                                     )
-                                    .cornerRadius(config.sendButtonRadius)
-                            }
-                            .padding(.top, 50)
-                            .padding(.horizontal, 16)
-                            Spacer()
-                        }
-                        HStack {
-                            Spacer()
-                            // Cancel Button
-                            Button(action: {
-                                environment.onCancel()
-                            }) {
-                                Text(config.cancelButtonTitle)
-                                    .font(config.cancelButtonFont)
-                                    .foregroundColor(config.cancelButtonTitleColor)
-                                    .frame(width: 224, height: 37)
-                                    .background(config.cancelButtonBackColor)
-                                    .overlay(
-                                        RoundedRectangle(cornerRadius: config.cancelButtonRadius)
-                                            .stroke(config.cancelButtonBorderColor, lineWidth: config.cancelButtonBorderWidth)
-                                    )
-                                    .cornerRadius(config.cancelButtonRadius)
+                                    .cornerRadius(config.messageTextFieldRadius)
+                                if messageText.isEmpty {
+                                    Text(config.messagePlaceHolder)
+                                        .font(config.messagePlaceHolderFont)
+                                        .foregroundColor(config.messagePlaceHolderColor)
+                                        .padding(.top, 24)
+                                        .padding(.leading, 32)
+                                }
                             }
                             .padding(.top, 14)
                             .padding(.horizontal, 16)
-                            .padding(.bottom, 44)
-                            Spacer()
+                            .focused($focusedField, equals: .message)
+                            HStack {
+                                Spacer()
+                                // Send Button
+                                Button(action: {
+                                    sendRequest()
+                                }) {
+                                    Text(config.sendButtonTitle)
+                                        .font(config.sendButtonFont)
+                                        .foregroundColor(config.sendButtonTitleColor)
+                                        .frame(width: 224, height: 37)
+                                        .background(config.sendButtonBackColor)
+                                        .overlay(
+                                            RoundedRectangle(cornerRadius: config.sendButtonRadius)
+                                                .stroke(config.sendButtonBorderColor, lineWidth: config.sendButtonBorderWidth)
+                                        )
+                                        .cornerRadius(config.sendButtonRadius)
+                                }
+                                .padding(.top, 50)
+                                .padding(.horizontal, 16)
+                                Spacer()
+                            }
+                            HStack {
+                                Spacer()
+                                // Cancel Button
+                                Button(action: {
+                                    environment.onCancel()
+                                }) {
+                                    Text(config.cancelButtonTitle)
+                                        .font(config.cancelButtonFont)
+                                        .foregroundColor(config.cancelButtonTitleColor)
+                                        .frame(width: 224, height: 37)
+                                        .background(config.cancelButtonBackColor)
+                                        .overlay(
+                                            RoundedRectangle(cornerRadius: config.cancelButtonRadius)
+                                                .stroke(config.cancelButtonBorderColor, lineWidth: config.cancelButtonBorderWidth)
+                                        )
+                                        .cornerRadius(config.cancelButtonRadius)
+                                }
+                                .padding(.top, 14)
+                                .padding(.horizontal, 16)
+                                .padding(.bottom, 44)
+                                Spacer()
+                            }
                         }
+                        .frame(maxWidth: .infinity)
+                        .background(config.containerViewBackColor)
+                        .cornerRadius(25)
+                        .padding(.horizontal, 24)
                     }
-                    .frame(maxWidth: .infinity)
-                    .background(config.containerViewBackColor)
-                    .cornerRadius(25)
-                    .padding(.horizontal, 24)
-                    Spacer()
+                    .frame(maxWidth: .infinity, alignment: .center)
+                    .frame(width: geometry.size.width)
+                    .frame(minHeight: geometry.size.height)
                 }
             }
-            .ignoresSafeArea()
         }
+        .edgesIgnoringSafeArea(.all)
     }
     
     private func sendRequest() {
